@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<body style = "background-color: #FFFF00">
+
+<h2>Joe's Hotdog Stand</h2>
+<h3>Prices:</h3>
+<p>Hotdogs - $3.25</p>
+<p>Fries - $2.00</p>
+<p>Drinks - $1.50</p>
+
+<h3>Checkout:</h3>
+<p id="hotdogs"></p>
+<p id="fries"></p>
+<p id="drinks"></p>
+<p id="sub"></p>
+<p id="special"></p>
+<p id="taxpay"></p>
+<p id="price"></p>
+
+
+
+<script language="javascript">
+
+  var subtotal = 0.0;
+
+  var discount = false;
+
+  var hotdogs = prompt("How many hot dogs you want?");
+  var fries = prompt("How many fries you want?");
+  var drinks = prompt("How many sodas you want?");
+
+  if (hotdogs != null)
+  {
+    document.getElementById("hotdogs").innerHTML = "Hotdogs ordered: " + hotdogs;
+    subtotal += (hotdogs * 3.25);
+  }
+  if (fries != null)
+  {
+    document.getElementById("fries").innerHTML = "Fries ordered: " + fries;
+    subtotal += (fries * 2);
+  }
+  if (drinks != null)
+  {
+    document.getElementById("drinks").innerHTML = "Drinks ordered: " + drinks;
+    subtotal += (fries * 1.5);
+  }
+  if (subtotal != null)
+  {
+    roundedsub = subtotal.toFixed(2);
+    document.getElementById("sub").innerHTML = "Subtotal: $" + roundedsub;
+    total = subtotal;
+    if (subtotal >= 20)
+    {
+      cutprice = subtotal * 0.1;
+      total = subtotal - cutprice;
+      discount = true;
+    }
+    tax = total * 0.0625;
+    total = total += tax;
+    total = total.toFixed(2);
+    tax = tax.toFixed(2);
+    document.getElementById("price").innerHTML = "Total: $" + total;
+    document.getElementById("taxpay").innerHTML = "Tax: $" + tax;
+  }
+  if (special)
+  {
+    document.getElementById("special").innerHTML = "Discount - 10%: $" + cutprice;
+  }
+
+</script>
+
+</body>
+</html>
